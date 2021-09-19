@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Halaman Utama</title>
+    <style>
+        * {box-sizing: border-box;}
+
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #e9e9e9;
+        }
+
+        .topnav a {
+          float: left;
+          display: block;
+          color: black;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+
+        .topnav a.active {
+          background-color: #2196F3;
+          color: white;
+        }
+
+        .topnav .search-container {
+          float: right;
+        }
+
+        .topnav input[type=text] {
+          padding: 6px;
+          margin-top: 8px;
+          font-size: 17px;
+          border: none;
+        }
+
+        .topnav .search-container button {
+          float: right;
+          padding: 6px;
+          margin-top: 8px;
+          margin-right: 16px;
+          background: #ddd;
+          font-size: 17px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+          background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+          .topnav .search-container {
+            float: none;
+          }
+          .topnav a, .topnav input[type=text], .topnav .search-container button {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+          }
+          .topnav input[type=text] {
+            border: 1px solid #ccc;
+          }
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+          }
+
+          /* Clear floats after the columns */
+          .row:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+
+          /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+          @media screen and (max-width: 600px) {
+            .column {
+              width: 100%;
+            }
+          }
+
+        .column img {
+            margin-left: 60px;
+            border-radius: 25px;
+        }
+
+        .column p {
+            display: table;
+            margin-top:100px;
+            margin-right:50px;
+            text-align: justify;
+        }
+        .mySlides {display:none;}
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+      function AlertIt() {
+      var answer = confirm ("Masukkan Hastag Terlebih Dahulu")
+      if (answer)
+      window.location="/";
+      }
+      </script>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="javascript:AlertIt();">Result</a>
+		<a href="{{url_for('show')}}">Show</a>
+		<a href="{{url_for('download')}}">Download</a>
+        <div class="search-container">
+          <form action="/" method="post" id="form" >
+            <input type="text" placeholder="Input Tag Here.." id="search" name="search" required>
+            <button type="submit" name="search" value="search">Search</button>
+          </form>
+        </div>
+    </div>
+    
+    <center>
+      <h2>
+        APLIKASI ANALISIS SENTIMEN TWITTER TERHADAP WISATA KABUPATEN KARANGANYAR
+      </h2>
+    </center>
+    <div class="row">
+        <div class="column" style="background-color:rgb(255, 255, 255);">
+            <img src="/static/material/BG_3.jfif">
+        </div>
+        <div class="column" style="background-color:rgb(255, 255, 255);">
+          <p>Karanganyar memiliki beragam objek wisata yang dapat dikunjungi oleh wisatawan, atas dasar evaluasi pelayanan saya membuat sebuah website yang dapat menganalisa komentar pengunjung terhadap suatu objek wisata pada sosial media berupa twitter.
+            Sistem Sentiment Analisis kami menggunakan model machine learning naive bayes sebagai model yang memprediksi suatu komentar mengandung makna positif, negatif, atau netral.
+            Untuk menganalisis, user memasukkan hastag pada form input hastag bagian pojok kanan. Setelah memasukkan hastag, user menekan button search di dekat form input hastag.</p>
+        </div>
+      </div>
+      <div class="w3-content w3-display-container" style="margin-top: 80px;">
+        <center><h1>Objek Pariwisata di Karanganyar</h1></center>
+        <div class="w3-display-container mySlides">
+            <img src="/static/material/BG_4.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+            <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+                Gunung Lawu
+            </div>
+        </div>
+    
+        <div class="w3-display-container mySlides">
+          <img src="/static/material/BG_5.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+          <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+          Kebun Teh Kemuning
+          </div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="/static/material/BG_6.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+        <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+        Air Terjun Jumog
+        </div>
+    </div>
+
+    <div class="w3-display-container mySlides">
+      <img src="/static/material/BG_7.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+      <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+      Bukit Sekipan
+      </div>
+  </div>
+
+  <div class="w3-display-container mySlides">
+    <img src="/static/material/BG_8.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+    <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+    Taman Pancasila
+    </div>
+</div>
+
+<div class="w3-display-container mySlides">
+  <img src="/static/material/BG_9.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+  <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+  Air Terjun Parang Ijo
+  </div>
+</div>
+
+<div class="w3-display-container mySlides">
+    <img src="/static/material/BG_10.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+    <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+    Tahura Karanganyar
+    </div>
+</div>
+
+<div class="w3-display-container mySlides">
+  <img src="/static/material/BG_11.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+  <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+  Telaga Madirda
+  </div>
+</div>
+
+<div class="w3-display-container mySlides">
+<img src="/static/material/BG_12.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+<div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+Alun - Alun Karanganyar
+</div>
+</div>
+
+<div class="w3-display-container mySlides">
+  <img src="/static/material/BG_13.jpg" style="width:980px; height: 450px;border-radius: 25px;">
+  <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+  Jalan Tembus Tawangmangu
+  </div>
+</div>
+      <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+      </div>
+      
+      <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+      
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+      
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+           x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+      }
+      </script>
+      <center>
+            <h1>Tools</h1>
+            <img src="/static/material/Logo_2.png" style="width: 80%; border-radius: 25px;">
+    </center>
+</body>
+</html>
